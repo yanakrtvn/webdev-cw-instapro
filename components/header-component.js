@@ -43,7 +43,7 @@ export function renderHeaderComponent({ element }) {
       } else {
         goToPage(AUTH_PAGE);
       }
-    });
+    });    
 
   /**
    * Обработчик клика по логотипу.
