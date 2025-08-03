@@ -1,7 +1,7 @@
 import { loginUser, registerUser } from "../api.js";
 import { renderHeaderComponent } from "./header-component.js";
 import { renderUploadImageComponent } from "./upload-image-component.js";
-
+import { escapeHtml } from "../helpers.js";
 /**
  * Компонент страницы авторизации.
  * Этот компонент предоставляет пользователю интерфейс для входа в систему или регистрации.
@@ -102,8 +102,8 @@ export function renderAuthPageComponent({ appEl, setUser }) {
 
       if (isLoginMode) {
         // Обработка входа
-        const login = document.getElementById("login-input").value;
-        const password = document.getElementById("password-input").value;
+        const login = escapeHtml(document.getElementById("login-input").value);
+        const password = escapeHtml(document.getElementById("password-input").value);
 
         if (!login) {
           alert("Введите логин");
@@ -125,9 +125,9 @@ export function renderAuthPageComponent({ appEl, setUser }) {
           });
       } else {
         // Обработка регистрации
-        const login = document.getElementById("login-input").value;
-        const name = document.getElementById("name-input").value;
-        const password = document.getElementById("password-input").value;
+        const login = escapeHtml(document.getElementById("login-input").value);
+        const name = escapeHtml(document.getElementById("name-input").value);
+        const password = escapeHtml(document.getElementById("password-input").value);
 
         if (!name) {
           alert("Введите имя");
